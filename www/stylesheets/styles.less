@@ -1,0 +1,354 @@
+table {
+  td {
+    &.actions {
+      text-align: right;
+    }
+  }
+}
+
+.row {
+  margin-left: 0 !important;
+  margin-bottom: 20px;
+}
+
+
+input[type=text], select, input[type=password] {
+  &.error {
+    border: 1px solid #ff0000;
+  }
+}
+
+.errorMessage {
+  color: #ff0000;
+}
+
+fieldset {
+  input[type=text], input[type=password], input[type=email] {
+    width: 90%;
+  }
+}
+
+.single-page {
+  .row-submit {
+    padding-left: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+}
+
+.list-page {
+  .list-buttons {
+    float: left;
+  }
+}
+
+#page_organization {
+
+  .head-block {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #bbb;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+
+    .actions {
+      position: absolute;
+      top: -3px;
+      right: 3px;
+      z-index: 999;
+      a {
+        font-size: 12px;
+        .icon-ok, icon-edit {
+          color: #77ad3a;
+        }
+        .icon-remove {
+          color: #ff0000;
+        }
+      }
+    }
+
+    &.ceo-block {
+      width: 350px;
+      margin: 0 auto;
+    }
+
+    .view-mode {
+      .person-name {
+        display: block;
+      }
+    }
+    .edit-mode {
+      display: none;
+      font-size: 11px;
+      padding-right: 20px;
+      select {
+        display: block;
+        width: 100%;
+        font-size: 10px;
+        height: 20px;
+        padding: 1px 3px;
+      }
+      input[type=text] {
+        display: block;
+        width: 95%;
+        font-size: 12px;
+        height: 11px;
+        padding-left: 8px;
+        padding-right: 3px;
+      }
+    }
+  }
+
+  .heads-row {
+    margin: 15px 0;
+    width: 100%;
+    td {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 11px;
+
+      .head-block {
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .head-buttons {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .new-head-form {
+    margin: 0 auto;
+    width: 300px;
+
+    .row {
+      margin-bottom: 5px;
+    }
+
+    select {
+      width: 298px;
+    }
+
+    input[type=text] {
+      width: 286px;
+    }
+
+    .row-buttons {
+      overflow: hidden;
+      .btn-add {
+        float: right;
+      }
+    }
+  }
+
+  .departments-container {
+    border-top: 1px solid #d1d1d1;
+    padding-top: 10px;
+    .cont-header {
+      overflow: hidden;
+      margin-bottom: 15px;
+      h2 {
+        float: left;
+        line-height: 19px;
+        margin: 0 15px 0 0;
+      }
+    }
+
+    .departments-row {
+      overflow: hidden;
+      .department {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px #bbb;
+        float: left;
+        margin-right: 20px;
+        width: 23%;
+
+        .department-header {
+          background: #f5b1c0;
+          padding: 10px 15px;
+          border-bottom: 1px solid #aaa;
+
+          a {
+            float: right;
+            &.icon-remove {
+              color: red;
+              margin-left: 6px;
+            }
+            &.icon-edit {
+              color: green;
+            }
+          }
+        }
+
+        .department-person {
+          padding: 10px 15px;
+
+          .no-head {
+            text-align: center;
+          }
+
+          .head-user {
+            text-decoration: underline;
+            margin: 0 3px;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+
+        .departament-open-container {
+          text-align: center;
+          padding: 5px 0;
+          border-top: 1px solid #777;
+        }
+
+        .head-form {
+          select {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .department-container {
+    display: none;
+    margin: 20px 0;
+    border: 1px solid #d1d1d1;
+    padding: 20px 0 0 0;
+    border-radius: 5px;
+
+    .loader {
+      text-align: center;
+    }
+  }
+}
+
+#page_department {
+  padding: 20px 20px 0 20px;
+
+  .footer{
+    border-top: 1px solid #777;
+    margin: 0 -20px;
+    padding: 10px;
+  }
+
+  .buttons {
+    text-align: right;
+    display: block;
+    margin: -25px 0 15px 0;
+    border-bottom: 1px solid #777;
+    padding-bottom: 5px;
+    a {
+      margin-right: 20px;
+    }
+  }
+
+  .empty-block {
+    text-align: center;
+    font-size: 30px;
+    line-height: 60px;
+  }
+
+  ul {
+    margin-left: 30px;
+    list-style: none;
+    li {
+      margin: 5px 0;
+    }
+
+    .icon-caret-up{
+      font-size: 26px;
+      vertical-align: middle;
+      margin-left: -5px;
+      width: 17px;
+    }
+
+    .icon-edit{
+      color: green;
+      display: none;
+    }
+
+    .icon-remove{
+      color: red;
+      display: none;
+    }
+
+    .department-item{
+      .department-name{
+        font-weight: bold;
+      }
+    }
+
+    .job-item:hover, .department-header:hover{
+      > .icon-edit, > .icon-remove{
+        display: inline;
+      }
+    }
+
+  }
+
+}
+
+.popup {
+  min-width: 500px;
+
+  .popup-loader{
+    background: url('../img/loading-icons/loading5.gif');
+    width: 220px;
+    height: 19px;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .popup-header {
+    border-bottom: 1px solid #777;
+    padding: 10px 5px;
+    overflow: hidden;
+
+    .close-popup {
+      display: block;
+      background: url('../img/close-popup.gif') no-repeat;
+      width: 19px;
+      height: 17px;
+      float: right;
+      margin: 5px;
+    }
+
+    h2 {
+      float: left;
+      margin: 0;
+      line-height: 22px;
+      margin-left: 20px;
+    }
+  }
+
+  .popup-content {
+    padding: 5px 20px;
+  }
+
+  .row {
+    margin: 15px 0;
+    text-align: left;
+    label {
+      display: block;
+      margin-bottom: 4px;
+    }
+    input[type=text] {
+      width: 450px;
+    }
+    textarea {
+      width: 450px;
+      height: 100px;
+    }
+
+    &.row-submit {
+      text-align: center;
+    }
+  }
+
+}
