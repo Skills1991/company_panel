@@ -1,9 +1,9 @@
 <div id="page_department">
 
     <div class="buttons">
-        <a href="#" data-action="/departments/create/?root=<?= $model->id ?>" data-header="Новое подразделение"
+        <a href="/departments/create/?root=<?= $model->id ?>" data-header="Новое подразделение"
            class="btn btn-popup btn-success btn-add-department">Добавить подразделение</a>
-        <a href="#" data-action="/jobs/create/?root=<?= $model->id ?>" data-header="Новая должность"
+        <a href="/jobs/create/?root=<?= $model->id ?>" data-header="Новая должность"
            class="btn btn-popup btn-success btn-add-job">Добавить должность</a>
     </div>
 
@@ -20,12 +20,16 @@
                 echo '<li class="department-item" data-id="' . $item['model']->id . '">
                 <div class="department-header">
                     <span class="department-name">' . substr((empty($prefix) ? '' : $prefix . '.') . $num . '. ', 2) . $item['model']->name . '</span>
-                    <a href="#" class="icon-edit btn-popup" data-action="/departments/edit/' . $item['model']->id . '" data-header="' . $item['model']->name . '"></a>
-                    <a href="#" class="icon-remove"></a>
+
+        <a href="#" class="icon-stop popover-btn" rel="popover" data-placement="top"
+           data-content="'.nl2br($item['model']->functions).'" data-original-title="Функции"></a>
+
+                     <a href="#" class="icon-caret-up popover-btn" rel="popover" data-placement="top"
+           data-content="'.nl2br($item['model']->result).'" data-original-title="Результат"></a></span>
+            <a class="icon-edit btn-popup"  href="/departments/edit/' . $item['model']->id . '" data-header="' . $item['model']->name . '"></a>
+                    <a href="/departments/delete/'.$item['model']->id.'" class="icon-remove"></a>
                 </div>
             <ul>';
-
-
 
             foreach ($item['children'] as $ind => $child) {
                 rec_print($_this, $child, $level + 1, (empty($prefix) ? '' : $prefix.'.').$num, $ind + 1);

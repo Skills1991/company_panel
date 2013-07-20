@@ -29,11 +29,13 @@ $form = $this->beginWidget('CActiveForm', array(
             <?=$form->textarea($model, 'result');?>
             <span class="errorMessage error-Department_result"></span>
         </div>
+        <? if($model->isNewRecord && $model->parent_id == 0): ?>
         <div class="row">
             <?=$form->labelEx($model, 'head_id');?>
             <?=$form->dropDownList($model, 'head_id', User::GetAll(), array('empty' => 'Нет руководителя'));?>
             <span class="errorMessage error-Department_head_id"></span>
         </div>
+    <? endif; ?>
     </fieldset>
 
     <div class="row row-submit">

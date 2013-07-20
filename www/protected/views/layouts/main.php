@@ -36,7 +36,6 @@
 
     <? if($this->active_page == 'organization'): ?>
         <script src="/js/organization.js"></script>
-        <script src="/js/organization_department.js"></script>
     <? endif; ?>
 
 </head>

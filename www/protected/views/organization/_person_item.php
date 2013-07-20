@@ -22,7 +22,7 @@
         <a href="#" class="icon-caret-up popover-btn" rel="popover" data-placement="top"
            data-content="<?= nl2br($job->result); ?>" data-original-title="Результат"></a>
 
-        <a href="#" class="icon-edit btn-popup" data-action="/jobs/edit/<?=$job->id?>" data-header="<?=$job->name?>"></a>
+        <a class="icon-edit btn-popup" href="/jobs/edit/<?=$job->id?>" data-header="<?=$job->name?>"></a>
         <a href="#" class="icon-remove"></a>
 
     </div>

@@ -1,6 +1,6 @@
 <ul id="myTab" class="nav nav-tabs two-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">Основные параметры</a></li>
-    <li><a href="#tab2" data-toggle="tab">Должности</a></li>
+
 </ul>
 
 

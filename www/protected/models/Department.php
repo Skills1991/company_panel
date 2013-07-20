@@ -46,7 +46,7 @@ class Department extends CActiveRecord
     public function relations()
     {
         return array(
-            'head' => array(self::BELONGS_TO, 'User', 'head_id'),
+            'head_job' => array(self::BELONGS_TO, 'Job', 'head_id'),
             'children' => array(self::HAS_MANY, 'Department', 'parent_id'),
             'jobs' => array(self::HAS_MANY, 'Job', 'department_id'),
             'parent' => array(self::BELONGS_TO, 'Department', 'parent_id'),

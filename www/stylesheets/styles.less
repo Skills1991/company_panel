@@ -44,6 +44,14 @@ fieldset {
 
 #page_organization {
 
+  .icon-caret-up{
+    font-size: 24px;
+    vertical-align: bottom;
+    width: 17px;
+    margin: -1px 5px;
+    display: inline-block;
+  }
+
   .head-block {
     border: 1px solid #ddd;
     padding: 10px;
@@ -172,6 +180,15 @@ fieldset {
           padding: 10px 15px;
           border-bottom: 1px solid #aaa;
 
+          .icon-caret-up{
+            font-size: 28px;
+            vertical-align: bottom;
+            margin-left: -5px;
+            width: 17px;
+            margin-top: -1px;
+            margin: -1px 5px;
+          }
+
           a {
             float: right;
             &.icon-remove {
@@ -231,6 +248,13 @@ fieldset {
 #page_department {
   padding: 20px 20px 0 20px;
 
+  .icon-caret-up{
+    font-size: 26px;
+    vertical-align: middle;
+    margin-left: -5px;
+    width: 17px;
+  }
+
   .footer{
     border-top: 1px solid #777;
     margin: 0 -20px;
@@ -261,21 +285,13 @@ fieldset {
       margin: 5px 0;
     }
 
-    .icon-caret-up{
-      font-size: 26px;
-      vertical-align: middle;
-      margin-left: -5px;
-      width: 17px;
-    }
 
     .icon-edit{
       color: green;
-      display: none;
     }
 
     .icon-remove{
       color: red;
-      display: none;
     }
 
     .department-item{
@@ -284,11 +300,7 @@ fieldset {
       }
     }
 
-    .job-item:hover, .department-header:hover{
-      > .icon-edit, > .icon-remove{
-        display: inline;
-      }
-    }
+
 
   }
 

@@ -9,17 +9,26 @@ class DepartmentsController extends Controller
     {
         if (Yii::app()->request->isAjaxRequest) {
             $model = new Department;
+            $model->parent_id = $root;
 
             if (isset($_POST['Department'])) {
                 $model->attributes = $_POST['Department'];
                 $this->performAjaxValidation($model);
                 $model->save();
 
+                $head_job = new Job;
+                $head_job->name = 'Руководитель';
+                $head_job->user_id = $model->head_id;
+                $head_job->head_type = 3;
+                $head_job->save();
+
+                $model->head_id = $head_job->id;
+                $model->save();
 
                 echo json_encode(array(
                     'success' => '1',
                     'errors' => array(),
-                    'url' => '/organization'
+                    'url' => $model->parent_id == 0 ? '/organization' : '',
                 ));
 
                 Yii::app()->end();
@@ -43,7 +52,7 @@ class DepartmentsController extends Controller
                 echo json_encode(array(
                     'success' => '1',
                     'errors' => array(),
-                    'url' => '/organization',
+                    'url' => $model->parent_id == 0 ? '/organization' : '',
                 ));
 
                 Yii::app()->end();

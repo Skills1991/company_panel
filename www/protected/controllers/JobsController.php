@@ -5,10 +5,12 @@ class JobsController extends Controller
     public $active_page = 'organization';
 
 
-    public function actionCreate($head = 0)
+    public function actionCreate($head = 0, $root = 0)
     {
         if (Yii::app()->request->isAjaxRequest) {
             $model = new Job;
+
+            $model->department_id = $root;
 
             $model->head_type = $head;
             if (isset($_POST['Job'])) {

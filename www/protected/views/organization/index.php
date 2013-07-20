@@ -42,31 +42,7 @@ $ceo_user = User::GetCEO();
                 <p class="empty">Нет отделов</p>
             <? else: ?>
                 <? foreach ($departments as $ind => $department): ?>
-                    <div class="department" data-id="<?= $department->id ?>">
-                        <div class="department-header">
-                            <?=$ind + 1?>. <?=$department->name?>
-                            <a href="/departments/delete/<?= $department->id ?>"
-                               onclick="return confirm('Вы уверены что хотите удалить отдел');" class="icon-remove"></a>
-                            <a href="#" data-action="/departments/edit/<?= $department->id ?>/?head=1"
-                               data-header="<?= $department->name ?>" class="btn-popup icon-edit"></a>
-                        </div>
-                        <div class="department-person">
-
-
-                            <div class="head-form" style="display: none">
-                                <select>
-                                    <option value="0">Нет руководителя</option>
-                                    <? foreach ($users as $user): ?>
-                                        <option value="<?= $user->id ?>"><?=$user->getFullName();?></option>
-                                    <? endforeach; ?>
-                                </select>
-                                <a href="#" class="btn btn-mini btn-success btn-save-head">Сохранить</a>
-                            </div>
-                        </div>
-                        <div class="departament-open-container">
-                            <a href="#" class="btn btn-mini btn-primary btn-open">Открыть</a>
-                        </div>
-                    </div>
+                    <? $this->renderPartial('//organization//_department_root', array('department' => $department)); ?>
                 <? endforeach; ?>
             <? endif; ?>
         </div>
