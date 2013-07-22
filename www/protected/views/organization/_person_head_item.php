@@ -1,7 +1,16 @@
 <div class="head-block" data-id="<?= $job->id ?>">
     <div class="view-mode">
+
+        <div class="badges">
+            <ul>
+            <? foreach($job->departments_head as $department_id): $department = Department::model()->findByPk($department_id); ?>
+                <li class="badge" style="background-color: #<?=$department->color?>"><?=$department_id?></li>
+            <? endforeach; ?>
+            </ul>
+        </div>
+
         <div class="actions">
-            <a href="/jobs/edit/<?=$job->id?>" class="icon-edit btn-popup" data-header="<?=$job->name?>"></a>
+            <a href="/jobs/edit/<?= $job->id ?>" class="icon-edit btn-popup" data-header="<?= $job->name ?>"></a>
             <a href="#" class="icon-remove action-remove"></a>
         </div>
 

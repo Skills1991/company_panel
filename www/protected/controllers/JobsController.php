@@ -15,6 +15,15 @@ class JobsController extends Controller
             $model->head_type = $head;
             if (isset($_POST['Job'])) {
                 $model->attributes = $_POST['Job'];
+
+                $departments_head = array();
+                if ($_POST['departments_head']) {
+                    foreach ($_POST['departments_head'] as $department_id) {
+                        $departments_head[] = $department_id;
+                    }
+                }
+                $model->departments_head = $departments_head;
+
                 $this->performAjaxValidation($model);
                 $model->save();
 
@@ -37,8 +46,19 @@ class JobsController extends Controller
         if (Yii::app()->request->isAjaxRequest) {
             $model = Job::model()->findByPk($id);
 
+
             if (isset($_POST['Job'])) {
+
                 $model->attributes = $_POST['Job'];
+
+                $departments_head = array();
+                if ($_POST['departments_head']) {
+                    foreach ($_POST['departments_head'] as $department_id) {
+                        $departments_head[] = $department_id;
+                    }
+                }
+                $model->departments_head = $departments_head;
+
                 $this->performAjaxValidation($model);
                 $model->save();
 

@@ -62,4 +62,15 @@ class Job extends CActiveRecord
     {
         UserJob::model()->deleteAllByAttributes(array('job_id' => $this->id));
     }
+
+    public function afterFind(){
+        $this->departments_head = empty($this->departments_head) ? array() : json_decode($this->departments_head);
+    }
+
+    public function beforeSave(){
+        $this->departments_head = json_encode(is_array($this->departments_head) ? $this->departments_head : array());
+
+        return true;
+    }
+
 }

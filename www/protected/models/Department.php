@@ -14,6 +14,20 @@ function rec_drop($department, $level)
 
 class Department extends CActiveRecord
 {
+    static $colors = array(
+        '444',
+        '555',
+        '666',
+        '777',
+        '888',
+        '999',
+        '000',
+        'aaa',
+        'bbb',
+        'ccc',
+        'ddd'
+    );
+
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
@@ -93,5 +107,25 @@ class Department extends CActiveRecord
         $model = $this;
         while ($model->parent) $model = $model->parent;
         return $model->id;
+    }
+
+    public function afterDelete()
+    {
+        if ($this->head_job) {
+            $this->head_job->delete();
+        }
+
+        foreach($this->children as $child){
+            $child->delete();
+        }
+    }
+
+    public function beforeSave()
+    {
+        if ($this->isNewRecord) {
+            $this->color = self::$colors[self::countByAttributes(array('parent_id' => 0)) % count(self::$colors)];
+        }
+
+        return true;
     }
 }

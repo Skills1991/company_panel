@@ -14,6 +14,7 @@ class DepartmentsController extends Controller
             if (isset($_POST['Department'])) {
                 $model->attributes = $_POST['Department'];
                 $this->performAjaxValidation($model);
+
                 $model->save();
 
                 $head_job = new Job;
@@ -47,6 +48,7 @@ class DepartmentsController extends Controller
             if (isset($_POST['Department'])) {
                 $model->attributes = $_POST['Department'];
                 $this->performAjaxValidation($model);
+
                 $model->save();
 
                 echo json_encode(array(

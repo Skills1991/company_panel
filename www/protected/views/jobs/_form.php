@@ -40,6 +40,19 @@ $form = $this->beginWidget('CActiveForm', array(
             <span class="errorMessage error-Job_result"></span>
         </div>
 
+        <? if($model->head_type == 1): ?>
+
+            <div class="row">
+                <label>Отвечает за отделы:</label>
+                <select multiple="multiple" name="departments_head[]">
+                    <? foreach(Department::model()->findAllByAttributes(array('parent_id' => 0)) as $department): ?>
+                        <option <?=in_array($department->id, $model->departments_head) ? 'selected' : ''?>  value="<?=$department->id?>"><?=$department->name?></option>
+                    <? endforeach; ?>
+                </select>
+            </div>
+
+        <? endif; ?>
+
     </fieldset>
 
     <div class="row row-submit">

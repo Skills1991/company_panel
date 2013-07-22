@@ -1,6 +1,6 @@
 <div class="department" data-id="<?= $department->id ?>">
-    <div class="department-header">
-        <?= $ind + 1 ?>. <?= $department->name ?>
+    <div class="department-header" style="background: #<?=$department->color?>">
+        <?= $department->id?>. <?= $department->name ?>
 
         <a href="/departments/delete/<?= $department->id ?>"
            onclick="return confirm('Вы уверены что хотите удалить отдел');" class="icon-remove"></a>
