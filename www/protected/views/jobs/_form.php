@@ -46,7 +46,7 @@ $form = $this->beginWidget('CActiveForm', array(
                 <label>Отвечает за отделы:</label>
                 <select multiple="multiple" name="departments_head[]">
                     <? foreach(Department::model()->findAllByAttributes(array('parent_id' => 0)) as $department): ?>
-                        <option <?=in_array($department->id, $model->departments_head) ? 'selected' : ''?>  value="<?=$department->id?>"><?=$department->name?></option>
+                        <option <?=in_array($department->id, $model->isNewRecord ? array() : $model->departments_head) ? 'selected' : ''?>  value="<?=$department->id?>"><?=$department->name?></option>
                     <? endforeach; ?>
                 </select>
             </div>
