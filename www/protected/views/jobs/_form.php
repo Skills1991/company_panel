@@ -11,7 +11,7 @@ $form = $this->beginWidget('CActiveForm', array(
         <? if ($model->head_type == 0): ?>
             <div class="row">
                 <?=$form->labelEx($model, 'department_id');?>
-                <?=$form->dropDownList($model, 'department_id', Department::GetDropDownData($model->department_id));?>
+                <?=$form->dropDownList($model, 'department_id', Department::GetDropDownData($model->department->getRootDepartmentId()));?>
                 <span class="errorMessage error-Job_department_id"></span>
             </div>
         <? endif; ?>

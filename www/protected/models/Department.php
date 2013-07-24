@@ -12,6 +12,18 @@ function rec_drop($department, $level)
     return $result;
 }
 
+function rec_tree($department)
+{
+    $result = array('model' => $department, 'children' => array());
+
+    foreach ($department->children as $child) {
+        $result['children'][] = rec_tree($child);
+    }
+
+    return $result;
+}
+
+
 class Department extends CActiveRecord
 {
     static $colors = array(
@@ -70,17 +82,6 @@ class Department extends CActiveRecord
 
     public function GetTree($model_id)
     {
-        function rec_tree($department)
-        {
-            $result = array('model' => $department, 'children' => array());
-
-            foreach ($department->children as $child) {
-                $result['children'][] = rec_tree($child);
-            }
-
-            return $result;
-        }
-
         $model = Department::model()->findByPk($model_id);
 
         return rec_tree($model);

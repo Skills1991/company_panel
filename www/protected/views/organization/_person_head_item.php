@@ -3,9 +3,9 @@
 
         <div class="badges">
             <ul>
-            <? foreach($job->departments_head as $department_id): $department = Department::model()->findByPk($department_id); ?>
+            <? foreach($job->departments_head as $department_id): $department = Department::model()->findByPk($department_id); if($department): ?>
                 <li class="badge" style="background-color: #<?=$department->color?>"><?=$department_id?></li>
-            <? endforeach; ?>
+            <? endif; endforeach; ?>
             </ul>
         </div>
 

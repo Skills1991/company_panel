@@ -17,7 +17,7 @@ class JobsController extends Controller
                 $model->attributes = $_POST['Job'];
 
                 $departments_head = array();
-                if ($_POST['departments_head']) {
+                if (isset($_POST['departments_head'])) {
                     foreach ($_POST['departments_head'] as $department_id) {
                         $departments_head[] = $department_id;
                     }
@@ -52,7 +52,7 @@ class JobsController extends Controller
                 $model->attributes = $_POST['Job'];
 
                 $departments_head = array();
-                if ($_POST['departments_head']) {
+                if (isset($_POST['departments_head'])) {
                     foreach ($_POST['departments_head'] as $department_id) {
                         $departments_head[] = $department_id;
                     }

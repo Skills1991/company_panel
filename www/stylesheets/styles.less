@@ -11,7 +11,6 @@ table {
   margin-bottom: 20px;
 }
 
-
 input[type=text], select, input[type=password] {
   &.error {
     border: 1px solid #ff0000;
@@ -44,7 +43,7 @@ fieldset {
 
 #page_organization {
 
-  .icon-caret-up{
+  .icon-caret-up {
     font-size: 24px;
     vertical-align: bottom;
     width: 17px;
@@ -61,7 +60,7 @@ fieldset {
     text-overflow: ellipsis;
     position: relative;
 
-    .badges{
+    .badges {
       position: absolute;
       top: -10px;
       right: 35px;
@@ -158,9 +157,11 @@ fieldset {
     }
   }
 
+
   .departments-container {
     border-top: 1px solid #d1d1d1;
     padding-top: 10px;
+
     .cont-header {
       overflow: hidden;
       margin-bottom: 15px;
@@ -172,20 +173,45 @@ fieldset {
     }
 
     .departments-row {
-      overflow: hidden;
+      width: 100%;
+
       .department {
         border: 1px solid #ddd;
         border-radius: 5px;
         box-shadow: 0px 0px 5px #bbb;
-        float: left;
-        margin-right: 20px;
-        width: 23%;
+        width: 14%;
 
         .department-header {
           padding: 10px 15px;
           border-bottom: 1px solid #aaa;
 
-          .icon-caret-up{
+          .top-block {
+            overflow: hidden;
+            border-bottom: 1px dashed #aaa;
+            .num {
+              float: left;
+              display: block;
+              width: 100%;
+              text-align: center;
+            }
+            .actions {
+              float: right;
+              display: block;
+              margin-top: -20px;
+            }
+            .icons {
+              float: left;
+              display: block;
+              margin-top: -20px;
+            }
+          }
+
+          .department-name {
+            text-align: center;
+            height: 40px;
+          }
+
+          .icon-caret-up {
             font-size: 28px;
             vertical-align: bottom;
             margin-left: -5px;
@@ -239,6 +265,8 @@ fieldset {
 
   .department-container {
     display: none;
+    float: left;
+    clear: both;
     margin: 20px 0;
     border: 1px solid #d1d1d1;
     padding: 20px 0 0 0;
@@ -253,14 +281,14 @@ fieldset {
 #page_department {
   padding: 20px 20px 0 20px;
 
-  .icon-caret-up{
+  .icon-caret-up {
     font-size: 26px;
     vertical-align: middle;
     margin-left: -5px;
     width: 17px;
   }
 
-  .footer{
+  footer {
     border-top: 1px solid #777;
     margin: 0 -20px;
     padding: 10px;
@@ -283,6 +311,22 @@ fieldset {
     line-height: 60px;
   }
 
+  .departments-table {
+    width: 100%;
+    td {
+      border: 1px solid #aaa;
+      vertical-align: top;
+      > .department-header {
+        padding: 10px;
+        border-bottom: 1px solid;
+        height: 40px;
+        h3 {
+          text-align: center;
+        }
+      }
+    }
+  }
+
   ul {
     margin-left: 30px;
     list-style: none;
@@ -290,23 +334,26 @@ fieldset {
       margin: 5px 0;
     }
 
-
-    .icon-edit{
+    .icon-edit {
       color: green;
     }
 
-    .icon-remove{
+    .icon-remove {
       color: red;
     }
 
-    .department-item{
-      .department-name{
+    .department-item {
+      .department-name {
         font-weight: bold;
       }
     }
+  }
 
-
-
+  .department-content {
+    padding: 10px;
+    >ul {
+      margin-left: 0;
+    }
   }
 
 }
@@ -314,7 +361,7 @@ fieldset {
 .popup {
   min-width: 500px;
 
-  .popup-loader{
+  .popup-loader {
     background: url('../img/loading-icons/loading5.gif');
     width: 220px;
     height: 19px;
