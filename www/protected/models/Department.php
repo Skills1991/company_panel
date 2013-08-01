@@ -129,4 +129,38 @@ class Department extends CActiveRecord
 
         return true;
     }
+
+    public static function render_level_list($items ,$level = 0)
+    {
+        $count = 1;
+        foreach($items as $item)
+        {
+        for ($i=0;$i<$level;$i++)
+            echo "&nbsp;&nbsp;&nbsp;";
+        if ($item->parent_id == 0)
+            echo "<input type='checkbox' class='departments' name='departments[]' value='".$item->id."'><strong>".$count.". ".$item->name."</strong><br />";
+        else
+            echo "<input type='checkbox' class='departments' name='departments[]' value='".$item->id."'>".$count.". ".$item->name."<br />";
+        $count++;
+        $items = Department::model()->findAllByAttributes(array('parent_id'=>$item->id));
+        if ($items!=NULL)
+            self::render_level_list($items,$level+1);
+
+        }
+    }
+
+    public static function render_level_list_array($items = NULL )
+    {
+        $arr = array();
+        if ($items == NULL)
+            $items = Department::model()->findAll();
+        foreach($items as $item)
+        {
+            $arr[$item->id]=$item->name;
+
+        }
+
+        return $arr;
+    }
+
 }

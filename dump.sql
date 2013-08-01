@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb2
+-- version 3.5.8.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июл 24 2013 г., 12:42
--- Версия сервера: 5.5.31
--- Версия PHP: 5.4.4-14+deb7u2
+-- Время создания: Авг 01 2013 г., 15:36
+-- Версия сервера: 5.5.32-0ubuntu0.13.04.1
+-- Версия PHP: 5.4.9-4ubuntu2.2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `amg_db`
+-- База данных: `amg`
 --
 
 -- --------------------------------------------------------
@@ -57,6 +57,68 @@ INSERT INTO `departments` (`id`, `parent_id`, `color`, `name`, `head_id`, `funct
 (30, 29, 'e8e8e8', 'Подподразделение', 34, 'Подчиняется подразделению1', 'Полная подчиненность'),
 (31, 18, 'e8e8e8', 'Подразделение 2', 38, 'Выполняет вторичные ф-ии', ''),
 (32, 31, 'e8e8e8', 'Второе подподразделение', 41, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `docheadings`
+--
+
+CREATE TABLE IF NOT EXISTS `docheadings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Дамп данных таблицы `docheadings`
+--
+
+INSERT INTO `docheadings` (`id`, `name`) VALUES
+(1, 'Шаблоны договоров'),
+(2, 'Клиентские договора'),
+(3, 'Регламенты'),
+(4, 'Прочее');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `doctypes`
+--
+
+CREATE TABLE IF NOT EXISTS `doctypes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `doctypes`
+--
+
+INSERT INTO `doctypes` (`id`, `name`) VALUES
+(1, 'КП'),
+(2, 'Договор');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `documents`
+--
+
+CREATE TABLE IF NOT EXISTS `documents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `family` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `heading_id` int(11) DEFAULT NULL,
+  `type_id` int(11) NOT NULL,
+  `date` varchar(255) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `dostup` text NOT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `comment` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -131,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `password`, `email`, `name`, `surname`, `father_name`, `phone`, `register_date`, `last_visit`) VALUES
-(1, 'ozerich', 'admin', 'ozicoder@gmail.com', 'Виталий', 'Озерский', 'Сергеевич', '+375296704790', '2013-07-24 00:00:00', '2013-07-23 10:11:27'),
+(1, 'ozerich', 'admin', 'ozicoder@gmail.com', 'Виталий', 'Озерский', 'Сергеевич', '+375296704790', '2013-07-24 00:00:00', '2013-07-29 14:53:38'),
 (2, '123', '321', 'kir55@mail.ru', 'Григорий', 'Ушаков', '', '', '2013-07-22 22:14:20', NULL);
 
 -- --------------------------------------------------------

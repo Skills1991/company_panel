@@ -5849,3 +5849,9 @@ button.close {
     overflow: visible !important;
   }
 }
+
+/*******************************/
+
+div.userInfoView {
+    display: none;
+}

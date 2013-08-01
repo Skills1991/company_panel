@@ -37,7 +37,9 @@
     <? if($this->active_page == 'organization'): ?>
         <script src="/js/organization.js"></script>
     <? endif; ?>
-
+    <? if($this->active_page == 'documents'): ?>
+        <script src="/js/documents.js"></script>
+    <? endif; ?>
 </head>
 
 <!--[if lt IE 7 ]>
@@ -51,7 +53,6 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <body>
 <!--<![endif]-->
-
 <div class="navbar">
     <div class="navbar-inner">
         <ul class="nav pull-right">
@@ -77,6 +78,7 @@
 
     <ul class="nav nav-tabs">
         <li<?=$this->active_page == 'organization' ? ' class="active"' : ''?>><a href="/organization"><i class="icon-dashboard"></i> <span>Оргструктура</span></a></li>
+        <li<?=$this->active_page == 'documents' ? ' class="active"' : ''?>><a href="/documents"><i class="icon-briefcase"></i> <span>Документы</span></a></li>
         <li<?=$this->active_page == 'personal' ? ' class="active"' : ''?>><a href="/personal"><i class="icon-bar-chart"></i> <span>Персонал</span></a></li>
     </ul>
 </div>
@@ -86,6 +88,7 @@
 
     <ul id="dashboard-menu" class="nav nav-list">
         <li<?=$this->active_page == 'organization' ? ' class="active"' : ''?>><a href="/organization"><i class="icon-home"></i><span>Оргструктура</span></a></li>
+        <li<?=$this->active_page == 'documents' ? ' class="active"' : ''?>><a href="/documents"><i class="icon-briefcase"></i><span>Документы</span></a></li>
         <li<?=$this->active_page == 'personal' ? ' class="active"' : ''?>><a href="/personal"><i class="icon-bar-chart"></i><span>Персонал</span></a></li>
     </ul>
 </div>
